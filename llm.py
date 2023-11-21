@@ -1,7 +1,7 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 import torch
 
-class LlmController:
+class Llm:
     def __init__(self, path_or_model_id) -> None:
         self.path = path_or_model_id # "HuggingFaceH4/zephyr-7b-beta"
         self.bnb_config = None
