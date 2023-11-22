@@ -1,7 +1,8 @@
 from fastapi import FastAPI
-from llm_configurator import LlmConfigurator
-from query_processor import QueryProcessor
 from contextlib import asynccontextmanager
+from app.llm_configurator import LlmConfigurator
+from app.query_processor import QueryProcessor
+
 
 configurator = None
 llm = None
