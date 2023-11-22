@@ -1,13 +1,20 @@
 from fastapi import FastAPI
 from llm_configurator import LlmConfigurator
 from query_processor import QueryProcessor
+from contextlib import asynccontextmanager
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+
 
 app = FastAPI()
 
 @app.get("/ask/{question}")
 def ask_llm(question: str):
+    processor = QueryProcessor(prompt, llm, tokenizer, lora)
+    answer = processor.run()
     return {"question": question,
-        "answer": "answer"}
+        "answer": answer}
 
 if __name__ == "__main__":
     configurator = LlmConfigurator()
@@ -19,3 +26,4 @@ if __name__ == "__main__":
 
     processor = QueryProcessor(prompt, llm, tokenizer, lora)
     answer = processor.run()
+    print(answer)

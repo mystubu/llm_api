@@ -50,5 +50,5 @@ class LlmConfigurator():
     def get_tokenizer(self):
         return self.tokenizer
     
-    def get_loar(self):
+    def get_lora(self):
         return self.lora
