@@ -7,8 +7,3 @@ def make_inference(instruction, context = None):
   else:
     prompt = f"Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\n### Instruction: \n{instruction}\n\n### Response: \n"
   return prompt
-
-# code werkend
-# (gedraaid in runpod (geautomatiseerd) optioneel)
-# in docker container draaien
-# add template
