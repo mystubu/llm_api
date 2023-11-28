@@ -46,13 +46,13 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
 async def read_users_me(current_user: authenticator.User = Depends(authenticator.get_current_user)):
     return current_user
 
-@app.post("/question/")
+@app.post("/question", response_model=authenticator.User)
 async def create_question(q: Question):
     global question 
     question = q
     return q
 
-@app.get("/ask/{question}")
+@app.get("/ask/{question}", response_model=authenticator.User)
 async def ask_llm(question: str):
     processor = QueryProcessor(question.question, llm, tokenizer, lora)
     answer = processor.run()
