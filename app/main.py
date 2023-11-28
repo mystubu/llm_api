@@ -6,6 +6,8 @@ from app.query_processor import QueryProcessor
 from app.question import Question
 import app.authenticator as authenticator
 from fastapi import HTTPException
+import runpod
+import uvicorn
 
 configurator = None
 llm = None
@@ -59,3 +61,10 @@ async def ask_llm(question: str):
     return {"answer": answer}
 
 # prompt = "How can I set up a version control system for our team project to achieve the KPI with the description: 'Manage personal files and the configuration of these files in a software development environment?"
+
+def run_api():
+    config = uvicorn.Config("main:app", port=8000, log_level="info")
+    server = uvicorn.Server(config)
+    server.run()
+
+runpod.serverless.start({"handler": run_api})
