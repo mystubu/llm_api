@@ -80,5 +80,17 @@ async def get_current_user(token: str = Depends(oauth2_scheme)):
         raise credentials_exception
     return user
 
+
+# GENERATE HASHED PASSWORD
 # if __name__ == "__main__":
 #     print(generate_hashed_password("studybuddy2023"))
+
+# HOW TO USE
+# Login for access token:
+# x-www-form-urlencoded
+# username: sb
+# password: **********
+
+# bearer token will be returned
+
+# Use get request and add bearer token to authorization
