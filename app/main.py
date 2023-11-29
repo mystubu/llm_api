@@ -8,7 +8,8 @@ llm = configurator.get_llm()
 lora = configurator.get_lora()
 tokenizer = configurator.get_tokenizer()
 
-async def ask_llm(question: str):
+def ask_llm(job):
+    question = job["question"]
     processor = QueryProcessor(question, llm, tokenizer, lora)
     answer = processor.run()
     return {"answer": answer}
