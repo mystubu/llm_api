@@ -10,13 +10,13 @@ tokenizer = configurator.get_tokenizer()
 
 def ask_llm(job):
     print(job)
-    question = job["question"]
+    question = job['input']['question']
     processor = QueryProcessor(question, llm, tokenizer, lora)
     answer = processor.run()
     return {"answer": answer}
 
 def ping(job):
-    return "pong]"
+    return "pong"
 
 # prompt = "How can I set up a version control system for our team project to achieve the KPI with the description: 'Manage personal files and the configuration of these files in a software development environment?"
 
