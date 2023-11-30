@@ -1,10 +1,8 @@
 FROM python:3.10 
-WORKDIR /code
-COPY ./requirements.txt .
-RUN pip install runpod
+WORKDIR /
+ADD ./requirements.txt .
 RUN pip install --no-cache-dir --upgrade -r requirements.txt
-COPY ./app/ .
-# CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"] 
-CMD ["python" , "/code/app/test_ping.py"]
+ADD ./app ./app
+# CMD ["python" , "-u",  "app/main.py"]
+CMD ["python" , "-u",  "app/main.py"]
 
-# we have no module named app error for fastapi ??
