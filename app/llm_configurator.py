@@ -32,7 +32,7 @@ def get_default_llm():
             "tokenizer": tokenizer}
 
 def get_default_lora(base_model):
-    return PeftModel.from_pretrained(base_model, "Fransver/zephyr-hboi-sb").to("cuda")
+    return PeftModel.from_pretrained(base_model, "wsuilen/zephyr-hboi-sb-2").to("cuda")
 
 class LlmConfigurator():
     default_llm = get_default_llm()["default_base_model"]
